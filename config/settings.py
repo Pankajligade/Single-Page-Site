@@ -23,10 +23,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-jdfr5bj^o)*6hsm1^tz%8uv9=2=-y%h2(w_pdb%ra*jwn537g2'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '192.168.0.111', 'ai.ligade.info']
 
+CSRF_TRUSTED_ORIGINS = ['https://ai.ligade.info']
 
 # Application definition
 
@@ -114,10 +115,6 @@ USE_I18N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/5.2/howto/static-files/
-
-STATIC_URL = 'static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
@@ -127,9 +124,17 @@ import os
 
 TEMPLATES[0]['DIRS'] = [os.path.join(BASE_DIR, 'main', 'templates')]
 
-STATIC_URL = '/static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'main', 'static')]
+import os
 
+# Base directory
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+# Static files (CSS, JS, images used in HTML templates)
+STATIC_URL = '/static/'
+# STATICFILES_DIRS = [os.path.join(BASE_DIR, 'main', 'static')]  # source dirs
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')            # for collectstatic
+
+# Media files (user uploaded like profile images, project images)
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
