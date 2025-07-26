@@ -11,6 +11,7 @@
 
   <!-- AOS CSS -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+<link rel="icon" type="image/png" sizes="32x32" href="/media/about/AI_Image.png">
 
   <!-- Anime & Typed -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
@@ -108,11 +109,9 @@
 
 <!-- About Section -->
 <section id="about" class="py-20 px-6 text-center" data-aos="fade-up">
-  {% if about.profile_image %}
-    <img src="{{ about.profile_image.url }}" class="w-32 h-32 rounded-full mx-auto mb-4" />
-  {% else %}
-    <img src="{% static 'images/default-avatar.png' %}" class="w-32 h-32 rounded-full mx-auto mb-4" />
-  {% endif %}
+
+  <img src="/media/about/AI_Image.png" class="w-32 h-32 rounded-full mx-auto mb-4" />
+
   <h1 class="text-4xl font-bold">{{ about.name }}</h1>
   <h2 class="text-xl text-gray-600">{{ about.role }}</h2>
   <p class="mt-4 max-w-xl mx-auto">{{ about.summary }}</p>
